@@ -1,23 +1,15 @@
 package model
 
 import (
-	"OcSummerAPI/pkg/database"
+	"OCsemmerApp/pkg/db"
+	"OCsemmerApp/pkg/domain"
 	"database/sql"
 	"fmt"
 )
 
-type Data struct {
-	ProductID    string
-	ProductName  string
-	UserName     string
-	PurchaseDate string
-}
-
-type DataList []*Data
-
-// ユーザーが入力した名前で検索できてしまうやつ
-func SearchData(name string) (*DataList, error) {
-	rows, err := database.Conn.Query(
+// ユーザーが入力した製品名ですべてのユーザーの履歴が検索できてしまうやつ
+func SearchData(name string) (*domain.DataResponse, error) {
+	rows, err := db.Conn.Query(
 		fmt.Sprintf(
 			`SELECT
 				T1.product_id
@@ -29,24 +21,24 @@ func SearchData(name string) (*DataList, error) {
 				JOIN user AS T2
 					ON T1.user_id = T2.id
 			WHERE
-				T2.name = %s`, name))
+				T2.product_name = %s`, name))
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var datalist DataList
+	var datalist domain.DataResponse
 	for rows.Next() {
 		data, err := convertToData(rows)
 		if err != nil {
 			return nil, err
 		}
-		datalist = append(datalist, data)
+		datalist.Datas = append(datalist.Datas, data)
 	}
 	return &datalist, nil
 }
 
-func convertToData(rows *sql.Rows) (*Data, error) {
-	data := Data{}
+func convertToData(rows *sql.Rows) (*domain.Data, error) {
+	data := domain.Data{}
 	if err := rows.Scan(
 		&data.ProductID,
 		&data.ProductName,

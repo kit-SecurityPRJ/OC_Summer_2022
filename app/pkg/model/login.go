@@ -1,8 +1,8 @@
 package model
 
 import (
-	"OcSummerAPI/pkg/database"
-	"OcSummerAPI/pkg/domain"
+	"OCsemmerApp/pkg/db"
+	"OCsemmerApp/pkg/domain"
 	"crypto/sha256"
 	"fmt"
 )
@@ -18,7 +18,8 @@ type Login struct {
 // 駄目なログインフォームのバックエンドコード
 func SearchUser(request *domain.LoginRequest) error {
 	login := Login{}
-	row := database.Conn.QueryRow("SELECT * FROM user WHERE name = ?", login.Name)
+	row := db.Conn.QueryRow("SELECT * FROM user WHERE name = ?", login.Name)
+	// ユーザーがいない場合パスワード検証をせず返してしまう
 	if err := row.Scan(&login.ID, &login.Name, &login.PassWord); err != nil {
 		return fmt.Errorf("ユーザーが存在しません")
 	}

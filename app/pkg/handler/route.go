@@ -17,16 +17,13 @@ func NewRouter() *Router {
 	})
 	// login test page
 	router.Engine.GET("/login", func(ctx *gin.Context) {
-
+		loginhandler(ctx)
 	})
 	// sql injection test page
 	datapage := router.Engine.Group("/data")
 	{
 		datapage.GET("/search", func(ctx *gin.Context) {
-
-		})
-		datapage.POST("/create", func(ctx *gin.Context) {
-
+			searchhandler(ctx)
 		})
 	}
 	return router
