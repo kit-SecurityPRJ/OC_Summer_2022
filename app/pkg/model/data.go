@@ -21,7 +21,7 @@ func SearchData(name string) (*domain.DataResponse, error) {
 				JOIN user AS T2
 					ON T1.user_id = T2.id
 			WHERE
-				T2.product_name = %s`, name))
+				T2.product_name LIKE %s`, name))
 	if err != nil {
 		return nil, err
 	}
@@ -32,7 +32,7 @@ func SearchData(name string) (*domain.DataResponse, error) {
 		if err != nil {
 			return nil, err
 		}
-		datalist.Datas = append(datalist.Datas, data)
+		datalist = append(datalist, data)
 	}
 	return &datalist, nil
 }

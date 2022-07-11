@@ -7,6 +7,4 @@ type Data struct {
 	PurchaseDate string `json:"purchaseDate"`
 }
 
-type DataResponse struct {
-	Datas []*Data `json:"datas"`
-}
+type DataResponse []*Data
