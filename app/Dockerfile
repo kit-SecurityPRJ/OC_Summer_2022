@@ -6,7 +6,7 @@ ENV CGO_ENABLED=0
 ENV GOOS=linux
 ENV GOARCH=amd64
 # Build
-RUN go build -o app
+RUN go build -o app ./cmd/main.go
 
 # Runtime Container
 FROM alpine
