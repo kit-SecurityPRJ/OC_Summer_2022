@@ -1,6 +1,6 @@
 CREATE TABLE user (
     id TEXT NOT NULL,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL ,
     password TEXT NOT NULL,
     PRIMARY KEY(id)
 );
@@ -14,4 +14,4 @@ CREATE TABLE purchase (
     CONSTRAINT fk_user
         FOREIGN KEY(user_id)
         REFERENCES user(id)
-)
+);

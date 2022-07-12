@@ -21,6 +21,7 @@ func autenticateHandler(ctx *gin.Context) {
 		ctx.JSON(400, "Bad Request")
 		return
 	}
+	log.Println(login)
 	if login.Name == "" && login.Pass == "" {
 		log.Println("nil request")
 		ctx.JSON(400, "not Request")
