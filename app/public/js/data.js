@@ -1,17 +1,20 @@
-async function get() {
-    const textbox = document.getElementById("search");
-    const URL = "http://localhost:8080/data/test?search=" + textbox.value;
-    const parameter = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+const textbox = document.getElementById("search");
+const URL = "http://localhost:8080/data/test?search=";
+const parameter = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
     }
-    const result = await fetch(URL,parameter).then((respose) => {
+}
+const table = document.getElementById("tarta");
+async function get() {
+    const result = await fetch(URL+textbox.value, parameter).then((respose) => {
         return respose.json();
     });
-    let table = document.getElementById("tarta");
+    //
+    clearTbody();
 
+    // データ行追加
     result.forEach(list => {
         let newRow = table.insertRow();
         Object.keys(list).forEach(key => {
@@ -21,4 +24,13 @@ async function get() {
             //console.log(`${key} ${list[key]}`)
         })
     })
+}
+
+function clearTbody() {
+    var tbodies = document.getElementsByTagName("tbody");
+    for (var i = 0; i < tbodies.length; i++) {
+        while (tbodies[i].rows.length > 0) {
+            tbodies[i].deleteRow(0);
+        }
+    }
 }
