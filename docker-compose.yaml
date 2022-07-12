@@ -1,0 +1,33 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./app
+    working_dir: /go/src
+    tty: true
+    ports:
+      - "8080:8080"
+    depends_on:
+      - OCSummer-db
+    volumes:
+      - ./app:go/src/app
+    environment:
+      - "PORT=8080"
+      - "SQL_URL=postgres://OCSummer-db:5432/ocsummer?user=ocsummer&password=ocsummer_password&sslmode=disable"
+    
+  OCSummer-db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    volumes:
+      - OCSummer-db:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-db.d
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - POSTGRES_USER=ocsummer
+      - POSTGRES_PASSWORD=ocsummer_password
+      - POSTGRES_DB=ocsummer
+      - TZ=Asia/Tokyo
+volumes:
+  OCSummer-db:
