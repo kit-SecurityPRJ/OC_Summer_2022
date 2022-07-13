@@ -8,6 +8,9 @@ ENV GOARCH=amd64
 # Build
 RUN go build -o app ./cmd/main.go
 
+#RUN cd app
+#RUN go run ./cmd/main.go
+
 # Runtime Container
 # FROM alpine
 # RUN apk add --no-cache ca-certificates

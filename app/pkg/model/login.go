@@ -3,10 +3,11 @@ package model
 import (
 	"OCsemmerApp/pkg/db"
 	"OCsemmerApp/pkg/domain"
-	"crypto/sha256"
 	"database/sql"
 	"fmt"
 	"log"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 // sidechannel
@@ -15,6 +16,15 @@ type Login struct {
 	ID       string
 	Name     string
 	PassWord string
+}
+
+// 最初にuserのパスワードを設定
+func UpdatePass(id, password string) error {
+	_, err := db.Conn.Exec("UPDATE users SET password = $1 WHERE id = $2", password, id)
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 // 駄目なログインフォームのバックエンドコード
@@ -29,8 +39,8 @@ func SearchUser(request domain.LoginRequest) error {
 		log.Println(err)
 		return nil
 	}
-	sum := fmt.Sprintf("%x", sha256.Sum256([]byte(request.Pass)))
-	if login.PassWord != sum {
+	if err := bcrypt.CompareHashAndPassword([]byte(login.PassWord), []byte(request.Pass)); err != nil {
+		log.Println(err)
 		return fmt.Errorf("パスワードが違います")
 	}
 	return nil

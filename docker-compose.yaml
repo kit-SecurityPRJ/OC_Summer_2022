@@ -13,6 +13,8 @@ services:
       - ./app:/go/src/app #大元の/appディレクトリをコンテナの/go/src/appにコピー
     environment:
       - "SQL_URL=postgres://OCSummer-db:5432/ocsummer?user=ocsummer&password=ocsummer_password&sslmode=disable"
+      #- "HTTP_PROXY=http://wwwproxy.kanazawa-it.ac.jp:8080"
+      #- "HTTPS_PROXY=http://wwwproxy.kanazawa-it.ac.jp:8080"
     
   OCSummer-db:
     image: postgres:alpine
