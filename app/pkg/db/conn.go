@@ -2,7 +2,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 
@@ -16,19 +15,10 @@ const driverName = "postgres"
 
 func init() {
 	// ユーザ
-	user := os.Getenv("POSTGRE_USER")
-	// パスワード
-	password := os.Getenv("POSTGRE_PASSWORD")
-	// 接続先ホスト
-	host := os.Getenv("POSTGRE_HOST")
-	// 接続先ポート
-	port := os.Getenv("POSTGRE_PORT")
-	// 接続先データベース
-	database := os.Getenv("POSTGRE_DATABASE")
+	sql_url := os.Getenv("SQL_URL")
 
 	var err error
-	Conn, err = sql.Open(driverName,
-		fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", user, password, host, port, database))
+	Conn, err = sql.Open(driverName, sql_url)
 	if err != nil {
 		log.Fatal(err)
 	}

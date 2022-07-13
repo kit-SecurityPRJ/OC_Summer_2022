@@ -3,6 +3,7 @@ package handler
 import (
 	"OCsemmerApp/pkg/domain"
 	"OCsemmerApp/pkg/model"
+	"fmt"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -17,10 +18,9 @@ func datahandler(ctx *gin.Context) {
 func searchhandler(ctx *gin.Context) {
 	prodname := ctx.Query("search")
 	if prodname == "" {
-		log.Println("not prodname request")
-		ctx.JSON(400, "Bad Request")
-		return
+		log.Println("製品名空文字")
 	}
+	fmt.Println("検索製品名", prodname)
 	data, err := model.SearchData(prodname)
 	if err != nil {
 		log.Println(err)
