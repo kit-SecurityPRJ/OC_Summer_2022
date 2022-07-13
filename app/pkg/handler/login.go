@@ -27,11 +27,10 @@ func autenticateHandler(ctx *gin.Context) {
 		ctx.JSON(400, "not Request")
 		return
 	}
-	if err := model.SearchUser(&login); err != nil {
+	if err := model.SearchUser(login); err != nil {
 		log.Println(err)
-		// エラー文をバックエンド側の文を送ってしまうやつ
-		ctx.JSON(500, err.Error())
+		ctx.JSON(400, err.Error())
 		return
 	}
-	ctx.JSON(200, "OK")
+	ctx.JSON(200, "ログイン成功")
 }

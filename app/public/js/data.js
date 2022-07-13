@@ -1,5 +1,5 @@
 const textbox = document.getElementById("search");
-const URL = "http://localhost:8080/data/test?search=";
+const URL = "http://localhost:8080/data/search?search=";
 const parameter = {
     method: 'GET',
     headers: {

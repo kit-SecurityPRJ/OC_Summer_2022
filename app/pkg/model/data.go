@@ -12,16 +12,17 @@ func SearchData(name string) (*domain.DataResponse, error) {
 	rows, err := db.Conn.Query(
 		fmt.Sprintf(
 			`SELECT
-				T1.product_id
-				T1.product_name
-				T2.name
+				T1.product_id,
+				T1.product_name,
+				T2.name,
 				T1.purchase_date
 			FROM 
 				purchase AS T1
-				JOIN user AS T2
+				JOIN users AS T2
 					ON T1.user_id = T2.id
 			WHERE
-				T2.product_name LIKE %s`, name))
+				T2.name = 'guest'
+				AND T1.product_name LIKE '%%%s%%'`, name))
 	if err != nil {
 		return nil, err
 	}

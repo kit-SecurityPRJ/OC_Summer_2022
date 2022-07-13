@@ -9,7 +9,7 @@ ENV GOARCH=amd64
 RUN go build -o app ./cmd/main.go
 
 # Runtime Container
-FROM alpine
-RUN apk add --no-cache ca-certificates
-COPY --from=builder /workdir/app /app
- ENTRYPOINT [ "/app" ]
+# FROM alpine
+# RUN apk add --no-cache ca-certificates
+# COPY --from=builder /workdir/app /app
+#  ENTRYPOINT [ "/app" ]
