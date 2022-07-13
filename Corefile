@@ -1,5 +1,17 @@
 . {
-    whoami
+    forward . 1.1.1.1
+    errors
+    log
+}
+
+kanazawa-it.ac.jp{
+    forward . 202.13.160.200
+    errors
+    log
+}
+
+kitsec {
+    hosts hosts
     errors
     log
 }
