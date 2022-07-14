@@ -6,7 +6,7 @@ async function post() {
         "name":namebox.value,
         "pass":passbox.value
     }
-    console.log(namebox.values,passbox.values)
+    //console.log(namebox.values,passbox.values)
     const parameter = {
         method: 'POST',
         headers: {

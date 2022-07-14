@@ -40,6 +40,9 @@ func NewRouter() *Router {
 			testsearchhandler(ctx)
 		})
 	}
+	router.Engine.GET("/xss", func(ctx *gin.Context) {
+		xsshandler(ctx)
+	})
 	return router
 }
 
