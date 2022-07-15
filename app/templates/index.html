@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>プロフィール</title>
+<link href="https://fonts.googleapis.com/css?family=Prompt:100,400,800" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<link href="style.css" rel="stylesheet">
+<link rel="stylesheet"type= "text/css" href= "{{ url_for('static',filename='./static/index.css') }}"/>
+
+
+</head>
+<body>
+
+<header>
+	<div class="site">
+		<span class="fa fa-home"></span>
+		<a href="#">PROFILE</a>
+	</div>
+</header>
+
+<div class="container">
+<article>
+	<!--いらなかったら消しても良い-->
+	<img src="img/kit.png" alt="">
+
+
+	<h1>自己紹介</h1>
+	<h2>工大太郎</h2>
+	<p>映画が好きです。</p>
+
+
+
+	<h2>地元の魅力</h2>
+	<p>伝統が....</p>
+
+	<p>新鮮なお魚が...</p>
+
+
+
+	<h2>オリジナル項目</h2>
+	<p>hogehoge</p>
+
+	<!-- 好きなように変更してください -->
+
+
+	<aside class="sns">
+	<ul>
+		<!--　#の所にＵＲＬを貼り付けるとリンクを踏めるようになります。　-->
+		<li><a href="#"><span class="fa fa-twitter"></span><span class="sr-only">Twitter</span></a></li>
+		<li><a href="#"><span class="fa fa-facebook"></span><span class="sr-only">Facebook</span></a></li>
+		<li><a href="#"><span class="fa fa-instagram"></span><span class="sr-only">Instagram</span></a></li>
+	</ul>
+	</aside>
+
+</article>
+
+</div>
+
+<footer>
+	<small>KITSEC</small>
+</footer>
+
+
+</body>
+</html>
