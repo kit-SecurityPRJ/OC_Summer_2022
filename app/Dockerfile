@@ -5,6 +5,8 @@ COPY . .
 ENV CGO_ENABLED=0
 ENV GOOS=linux
 ENV GOARCH=amd64
+ENV HTTPS_PROXY=wwwproxy.kanazawa-it.ac.jp:8080
+ENV HTTP_PROXY=wwwproxy.kanazawa-it.ac.jp:8080
 # Build
 RUN go build -o app ./cmd/main.go
 

@@ -19,7 +19,8 @@ async function post() {
         return response.json();
     })
     .catch((error) => {
-        console.error(error)
+        console.error(error);
     });
-    console.log(result)
+    alert(result);
+
 }
