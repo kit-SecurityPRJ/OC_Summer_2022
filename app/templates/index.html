@@ -8,8 +8,10 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<link href="style.css" rel="stylesheet">
-<link rel="stylesheet"type= "text/css" href= "{{ url_for('static',filename='./index.css') }}"/>
+
+<!-- <link href="style.css" rel="stylesheet"> -->
+<link rel="stylesheet"type= "text/css" href= "{{ url_for('static',filename='../static/index.css') }}"/>
+<link rel="stylesheet"type= "text/css" href= "{{ url_for('static',filename='../static/style.css') }}"/>
 
 
 </head>
@@ -25,7 +27,7 @@
 <div class="container">
 <article>
 	<!--いらなかったら消しても良い-->
-	<img src="img/kit.png" alt="">
+	<img src="../static/img/kit.png" alt="">
 
 
 	<h1>自己紹介</h1>
