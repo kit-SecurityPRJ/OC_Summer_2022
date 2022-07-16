@@ -9,7 +9,6 @@
 
 
 
-<!-- <link href="style.css" rel="stylesheet"> -->
 <link rel="stylesheet"type= "text/css" href= "{{ url_for('static',filename='../static/index.css') }}"/>
 
 
@@ -23,14 +22,34 @@
 	</div>
 </header>
 
+<!--
+	ここから下を見てください！
+-->
+
+<div>
+	<article>
+		<!--いらなかったら消しても良い-->
+		<img src="../static/img/kit.png" alt="" style="display: block; margin: auto;">
+
+		<h2>金沢工業大学のオープンキャンパスへようこそ</h2>
+		<p></p>
+
+	</article>
+</div>
+
 <div class="container">
-<article>
-	<!--いらなかったら消しても良い-->
-	<img src="../static/img/kit.png" alt="">
+
+	<article>
 
 
-	<h1>自己紹介</h1>
-	<h2>工大太郎</h2>
+		<!--
+			ここから下は１人目の場所
+			好きなように変更してください 
+		-->
+
+
+	<h1>自己紹介1</h1> <!-- h1 は大タイトルになります。-->
+	<h2>工大太郎</h2> <!-- h2 は中タイトルになります。-->
 	<p>映画が好きです。</p>
 
 
@@ -45,8 +64,6 @@
 	<h2>オリジナル項目</h2>
 	<p>hogehoge</p>
 
-	<!-- 好きなように変更してください -->
-
 
 	<aside class="sns">
 	<ul>
@@ -59,6 +76,41 @@
 
 </article>
 
+<article>
+	<!--
+		ここから下は2人目の場所
+		好きなように変更してください 
+	-->
+
+
+<h1>自己紹介2</h1>
+<h2>工大太郎</h2>
+<p>映画が好きです。</p>
+
+
+
+<h2>地元の魅力</h2>
+<p>伝統が....</p>
+
+<p>新鮮なお魚が...</p>
+
+
+
+<!-- 好きなように変更してください -->
+<h2>オリジナル項目</h2>
+<p>hogehoge</p>
+
+
+<aside class="sns">
+<ul>
+	<!--　#の所にＵＲＬを貼り付けるとリンクを踏めるようになります。　-->
+	<li><a href="#"><span class="fa fa-twitter"></span><span class="sr-only">Twitter</span></a></li>
+	<li><a href="#"><span class="fa fa-facebook"></span><span class="sr-only">Facebook</span></a></li>
+	<li><a href="#"><span class="fa fa-instagram"></span><span class="sr-only">Instagram</span></a></li>
+</ul>
+</aside>
+
+</article>
 </div>
 
 <footer>

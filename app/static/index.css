@@ -9,8 +9,9 @@ body {
 
 
 img {
-	width: 100%;
+	width: 30%;
 }
+
 
 /* ヘッダー */
 header {
@@ -74,10 +75,13 @@ header {
 }
 
 
+
+
 /* ２段組み */
 @media (min-width: 600px) {
 	.container {
 		padding: 0 10px;
+
 	}
 	article {
 		display: block;
@@ -87,7 +91,12 @@ header {
 		box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
 	}
 }
-
+@media (max-width: 599px){
+	.imgcontainer {
+		text-align: center;
+		margin-top: 100px;
+	}
+}
 @media (min-width: 769px) {
 	.container {
 		display: flex;
@@ -103,6 +112,8 @@ header {
 		flex: 3;
 	}
 }
+
+
 
 
 
